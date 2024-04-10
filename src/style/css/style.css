@@ -1,0 +1,22 @@
+* {
+  margin: 15px;
+}
+
+.navbar, .menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.productList {
+  list-style-type: none;
+}
+
+.product img {
+  max-width: 30%;
+}
+
+.singleImg {
+  max-width: 65%;
+}
+
+/*# sourceMappingURL=style.css.map */

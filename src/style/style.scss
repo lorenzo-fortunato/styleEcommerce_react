@@ -1,0 +1,23 @@
+* {
+    margin: 15px;
+}
+// navbar
+.navbar, .menu {
+    display: flex;
+    list-style-type: none;
+    
+
+}
+
+// products
+.productList {
+    list-style-type: none;
+}
+.product img {
+    max-width: 30%;
+}
+
+// detail
+.singleImg {
+    max-width: 65%;
+}
