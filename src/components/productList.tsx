@@ -63,28 +63,31 @@ const ProductList = () => {
 
   return (
     <>
-      <select className="category" onChange={handleSelection}>
-        <option className="allCategory" value="all">
-          All
-        </option>
-        <option value="electronics">Electronics</option>
-        <option value="jewelery">Jewelery</option>
-        <option value="men's clothing">Men's clothing</option>
-        <option value="women's clothin">Women's clothing</option>
-      </select>
+      <div className="category">
+      <span>Choose your category: </span>
+        <select onChange={handleSelection}>
+          <option className="allCategory" value="all">
+            All
+          </option>
+          <option value="electronics">Electronics</option>
+          <option value="jewelery">Jewelery</option>
+          <option value="men's clothing">Men's clothing</option>
+          <option value="women's clothin">Women's clothing</option>
+        </select>
+      </div>
       <ul className="productList">
         { error && <div>{error}</div> }
         { isPending && <div>Loading products...</div> }
         { data &&
           data.map((product: Product) => {
             return (
-                <li className="product" key={product.id}>
-                  <Link to={`/products/${product.id}`}>{product.title}</Link>
-                  <p className="productCategory">
+                <li className="productItem" key={product.id}>
+                  <Link to={`/products/${product.id}`} className="productStyle">{product.title}</Link>
+                  <p className="productStyle">
                     Category: {product.category}
                   </p>
                   <img src={product.image} />
-                  <button onClick={() => addToCart(product.id)}>Add to cart</button>
+                  <button className="btnAddToCart" onClick={() => addToCart(product.id)}>Add to cart</button>
                 </li>
             )
           }) }

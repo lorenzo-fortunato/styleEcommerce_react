@@ -10,6 +10,7 @@ const UserList = () => {
   console.log(data);
   return (
     <>
+      <div className="usersTitle">All our Users!</div>
       {error && <div>{error}</div>}
       {isPending && <div>Loading users...</div>}
       <table className="userTable">

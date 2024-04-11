@@ -9,6 +9,7 @@ import UserList from './components/UserList';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import useToken from './customHook/useToken';
+import Footer from './components/Footer';
 
 function App() {
   const { token, setToken }: { token: any, setToken: any} = useToken();
@@ -23,14 +24,14 @@ function App() {
         <Navbar />
         <div className="content">
           <Routes>
-          <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home/>} />
             <Route path='/products' element={<ProductList/>} />
             <Route path='/products/:id' element={<ProductDetail />} />
             <Route path='/users' element={<UserList />} />
             <Route path='/cart' element={<Cart />} />
-            {/* <Route path='/login' element={<Login />} /> */}
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   );

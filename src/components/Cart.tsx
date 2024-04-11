@@ -3,7 +3,9 @@ import { Product } from "../interfaces/Product";
 import useLocalStorageState from "use-local-storage-state";
 
 const Cart = () => {
-  const [cart, setCart] = useLocalStorageState<any>("products");
+  const [cart, setCart] = useLocalStorageState<any>('products', {
+    defaultValue: []
+  });
   const [isPending, setIsPending] = useState<boolean>(true);
 
   useEffect(() => {
@@ -22,8 +24,12 @@ const Cart = () => {
   }
 
   const goToPayment = (): void => {
-    setCart([]);
-    alert("You have paid!");
+    if (totalPrice == 0) {
+      alert("Nothing to pay!");
+    } else {
+      setCart([]);
+      alert("You have paid!");
+    }
   }
 
   return (
@@ -31,14 +37,16 @@ const Cart = () => {
       { isPending && <div>Loading cart...</div> }
       { cart.map((product: any, index: any) => (
         <div className="productCartDetails" key={ index }>
-          <h5>Title: { product.title }</h5>
-          <span>Rating: { product.rating.rate }</span>
-          <span>Price: { product.price }€</span>
-          <button onClick={() => removeFromCart(product.id)}>Remove from Cart</button>
+          <h5 className="cartItem">Title: { product.title }</h5>
+          <span className="cartItem">Rating: { product.rating.rate }</span>
+          <span className="cartItem">Price: { product.price }€</span>
+          <button className="btnRemoveFromCart" onClick={() => removeFromCart(product.id)}>Remove from Cart</button>
         </div>
       )) }
-      <div>Total: { totalPrice }€</div>
-      <button onClick={goToPayment}>Go to Payment</button>
+      <div className="totalAmount">Total: { totalPrice }€</div>
+      <div className="payment">
+        <button className="btnGoToPayment" onClick={goToPayment}>Go to Payment</button>
+      </div>
     </>
   );
 };

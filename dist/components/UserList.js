@@ -9,6 +9,7 @@ const UserList = () => {
     const { data, isPending, error } = (0, useFetch_1.default)("https://fakestoreapi.com/users?sort=asc");
     console.log(data);
     return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("div", { className: "usersTitle" }, "All our Users!"),
         error && react_1.default.createElement("div", null, error),
         isPending && react_1.default.createElement("div", null, "Loading users..."),
         react_1.default.createElement("table", { className: "userTable" },

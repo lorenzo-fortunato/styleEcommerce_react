@@ -41,28 +41,30 @@ const Login = ({ setToken }: { setToken: any }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="formLogin">
-      <input
-        type="text"
-        value={username}
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="text"
-        value={password}
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {isWrongCredentials && (
-        <div>Wrong credentials, please retry with others...</div>
-      )}
-      {!isPending ? (
-        <button>Login</button>
-      ) : (
-        <button disabled>Logging in...</button>
-      )}
-    </form>
+      <form onSubmit={handleSubmit} className="formLogin">
+        <h2 className="titleLogin">Style E-Commerce!</h2>
+        <input
+          // className="inputLogin"
+          className={isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin"}
+          type="text"
+          value={username}
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)} />
+        <input
+          className={isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin"}
+          type="text"
+          value={password}
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)} />
+        {isWrongCredentials && (
+          <div>Wrong credentials, please retry with others...</div>
+        )}
+        {!isPending ? (
+          <button className="btnLogin">Login</button>
+        ) : (
+          <button disabled>Logging in...</button>
+        )}
+      </form>
   );
 };
 

@@ -82,24 +82,26 @@ const ProductList = () => {
         setMycart([...myCart, ...singleProduct]);
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("select", { className: "category", onChange: handleSelection },
-            react_1.default.createElement("option", { className: "allCategory", value: "all" }, "All"),
-            react_1.default.createElement("option", { value: "electronics" }, "Electronics"),
-            react_1.default.createElement("option", { value: "jewelery" }, "Jewelery"),
-            react_1.default.createElement("option", { value: "men's clothing" }, "Men's clothing"),
-            react_1.default.createElement("option", { value: "women's clothin" }, "Women's clothing")),
+        react_1.default.createElement("div", { className: "category" },
+            react_1.default.createElement("span", null, "Choose your category: "),
+            react_1.default.createElement("select", { onChange: handleSelection },
+                react_1.default.createElement("option", { className: "allCategory", value: "all" }, "All"),
+                react_1.default.createElement("option", { value: "electronics" }, "Electronics"),
+                react_1.default.createElement("option", { value: "jewelery" }, "Jewelery"),
+                react_1.default.createElement("option", { value: "men's clothing" }, "Men's clothing"),
+                react_1.default.createElement("option", { value: "women's clothin" }, "Women's clothing"))),
         react_1.default.createElement("ul", { className: "productList" },
             error && react_1.default.createElement("div", null, error),
             isPending && react_1.default.createElement("div", null, "Loading products..."),
             data &&
                 data.map((product) => {
-                    return (react_1.default.createElement("li", { className: "product", key: product.id },
-                        react_1.default.createElement(react_router_dom_1.Link, { to: `/products/${product.id}` }, product.title),
-                        react_1.default.createElement("p", { className: "productCategory" },
+                    return (react_1.default.createElement("li", { className: "productItem", key: product.id },
+                        react_1.default.createElement(react_router_dom_1.Link, { to: `/products/${product.id}`, className: "productStyle" }, product.title),
+                        react_1.default.createElement("p", { className: "productStyle" },
                             "Category: ",
                             product.category),
                         react_1.default.createElement("img", { src: product.image }),
-                        react_1.default.createElement("button", { onClick: () => addToCart(product.id) }, "Add to cart")));
+                        react_1.default.createElement("button", { className: "btnAddToCart", onClick: () => addToCart(product.id) }, "Add to cart")));
                 }))));
 };
 exports.default = ProductList;

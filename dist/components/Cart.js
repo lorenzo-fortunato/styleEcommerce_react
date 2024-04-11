@@ -29,7 +29,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const use_local_storage_state_1 = __importDefault(require("use-local-storage-state"));
 const Cart = () => {
-    const [cart, setCart] = (0, use_local_storage_state_1.default)("products");
+    const [cart, setCart] = (0, use_local_storage_state_1.default)('products', {
+        defaultValue: []
+    });
     const [isPending, setIsPending] = (0, react_1.useState)(true);
     (0, react_1.useEffect)(() => {
         setIsPending(false);
@@ -43,27 +45,33 @@ const Cart = () => {
         setCart(getProducts().filter(e => e.id != id));
     };
     const goToPayment = () => {
-        setCart([]);
-        alert("You have paid!");
+        if (totalPrice == 0) {
+            alert("Nothing to pay!");
+        }
+        else {
+            setCart([]);
+            alert("You have paid!");
+        }
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
         isPending && react_1.default.createElement("div", null, "Loading cart..."),
         cart.map((product, index) => (react_1.default.createElement("div", { className: "productCartDetails", key: index },
-            react_1.default.createElement("h5", null,
+            react_1.default.createElement("h5", { className: "cartItem" },
                 "Title: ",
                 product.title),
-            react_1.default.createElement("span", null,
+            react_1.default.createElement("span", { className: "cartItem" },
                 "Rating: ",
                 product.rating.rate),
-            react_1.default.createElement("span", null,
+            react_1.default.createElement("span", { className: "cartItem" },
                 "Price: ",
                 product.price,
                 "\u20AC"),
-            react_1.default.createElement("button", { onClick: () => removeFromCart(product.id) }, "Remove from Cart")))),
-        react_1.default.createElement("div", null,
+            react_1.default.createElement("button", { className: "btnRemoveFromCart", onClick: () => removeFromCart(product.id) }, "Remove from Cart")))),
+        react_1.default.createElement("div", { className: "totalAmount" },
             "Total: ",
             totalPrice,
             "\u20AC"),
-        react_1.default.createElement("button", { onClick: goToPayment }, "Go to Payment")));
+        react_1.default.createElement("div", { className: "payment" },
+            react_1.default.createElement("button", { className: "btnGoToPayment", onClick: goToPayment }, "Go to Payment"))));
 };
 exports.default = Cart;
