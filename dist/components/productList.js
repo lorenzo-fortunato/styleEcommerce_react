@@ -66,15 +66,17 @@ const ProductList = () => {
     const getAllProducts = () => {
         fetchData("https://fakestoreapi.com/products");
     };
+    const getProductsPerCategory = (value) => {
+        fetchData(`https://fakestoreapi.com/products/category/${value}`);
+    };
     const handleSelection = () => {
         const selection = document.querySelector(".category");
-        const optionAll = document.querySelector(".allCategory");
-        const value = selection === null || selection === void 0 ? void 0 : selection.value;
+        const value = selection.value;
         if (value == "all") {
             getAllProducts();
         }
         else {
-            fetchData(`https://fakestoreapi.com/products/category/${value}`);
+            getProductsPerCategory(value);
         }
     };
     const addToCart = (id) => {
@@ -82,14 +84,14 @@ const ProductList = () => {
         setMycart([...myCart, ...singleProduct]);
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { className: "category" },
+        react_1.default.createElement("div", { className: "categoryDiv" },
             react_1.default.createElement("span", null, "Choose your category: "),
-            react_1.default.createElement("select", { onChange: handleSelection },
+            react_1.default.createElement("select", { className: "category", onChange: handleSelection },
                 react_1.default.createElement("option", { className: "allCategory", value: "all" }, "All"),
                 react_1.default.createElement("option", { value: "electronics" }, "Electronics"),
                 react_1.default.createElement("option", { value: "jewelery" }, "Jewelery"),
                 react_1.default.createElement("option", { value: "men's clothing" }, "Men's clothing"),
-                react_1.default.createElement("option", { value: "women's clothin" }, "Women's clothing"))),
+                react_1.default.createElement("option", { value: "women's clothing" }, "Women's clothing"))),
         react_1.default.createElement("ul", { className: "productList" },
             error && react_1.default.createElement("div", null, error),
             isPending && react_1.default.createElement("div", null, "Loading products..."),

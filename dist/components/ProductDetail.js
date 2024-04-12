@@ -32,8 +32,8 @@ const use_local_storage_state_1 = __importDefault(require("use-local-storage-sta
 const ProductDetail = () => {
     const { id } = (0, react_router_dom_1.useParams)();
     const [singleProduct, setSingleProduct] = (0, react_1.useState)();
-    const [myCart, setMycart] = (0, use_local_storage_state_1.default)('products', {
-        defaultValue: []
+    const [myCart, setMycart] = (0, use_local_storage_state_1.default)("products", {
+        defaultValue: [],
     });
     (0, react_1.useEffect)(() => {
         getSingleProduct();
@@ -52,20 +52,21 @@ const ProductDetail = () => {
         setMycart([...myCart, singleProduct]);
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("h3", null, singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.title),
-        react_1.default.createElement("div", { className: "singleDetails" },
-            "Category ", singleProduct === null || singleProduct === void 0 ? void 0 :
+        react_1.default.createElement("h3", { className: "singleDetail" }, singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.title),
+        react_1.default.createElement("div", { className: "singleDetail" },
+            "Category: ", singleProduct === null || singleProduct === void 0 ? void 0 :
             singleProduct.category),
-        react_1.default.createElement("div", { className: "singleDescription" }, singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.description),
-        react_1.default.createElement("div", { className: "singleImg" },
-            react_1.default.createElement("img", { src: singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.image, alt: singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.title })),
-        react_1.default.createElement("div", { className: "singlePrice" },
-            "Price: ", singleProduct === null || singleProduct === void 0 ? void 0 :
-            singleProduct.price,
-            "\u20AC"),
-        react_1.default.createElement("div", { className: "singleRating" },
-            "Rating score: ", singleProduct === null || singleProduct === void 0 ? void 0 :
-            singleProduct.rating.rate),
-        react_1.default.createElement("button", { onClick: addToCart }, "Add to cart")));
+        react_1.default.createElement("div", { className: "singleDetail" }, singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.description),
+        react_1.default.createElement("div", { className: "detail" },
+            react_1.default.createElement("img", { className: "singleImg", src: singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.image, alt: singleProduct === null || singleProduct === void 0 ? void 0 : singleProduct.title }),
+            react_1.default.createElement("div", { className: "priceProspect" },
+                react_1.default.createElement("div", { className: "singlePrice" },
+                    "Price: ", singleProduct === null || singleProduct === void 0 ? void 0 :
+                    singleProduct.price,
+                    "\u20AC"),
+                react_1.default.createElement("div", { className: "singleRating" },
+                    "Rating score: ", singleProduct === null || singleProduct === void 0 ? void 0 :
+                    singleProduct.rating.rate),
+                react_1.default.createElement("button", { className: "btnAddToCart", onClick: addToCart }, "Add to cart")))));
 };
 exports.default = ProductDetail;

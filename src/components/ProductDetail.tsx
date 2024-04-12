@@ -6,8 +6,8 @@ import useLocalStorageState from "use-local-storage-state";
 const ProductDetail = () => {
   const { id }: { id?: number } = useParams();
   const [singleProduct, setSingleProduct] = useState<Product>();
-  const [myCart, setMycart] = useLocalStorageState<any>('products', {
-    defaultValue: []
+  const [myCart, setMycart] = useLocalStorageState<any>("products", {
+    defaultValue: [],
   });
 
   useEffect(() => {
@@ -32,17 +32,23 @@ const ProductDetail = () => {
 
   return (
     <>
-      <h3>{singleProduct?.title}</h3>
-      <div className="singleDetails">Category {singleProduct?.category}</div>
-      <div className="singleDescription">{singleProduct?.description}</div>
-      <div className="singleImg">
-        <img src={singleProduct?.image} alt={singleProduct?.title} />
+      <h3 className="singleDetail">{singleProduct?.title}</h3>
+      <div className="singleDetail">Category: {singleProduct?.category}</div>
+      <div className="singleDetail">{singleProduct?.description}</div>
+      <div className="detail">
+        <img
+          className="singleImg"
+          src={singleProduct?.image}
+          alt={singleProduct?.title}
+        />
+        <div className="priceProspect">
+          <div className="singlePrice">Price: {singleProduct?.price}€</div>
+          <div className="singleRating">
+            Rating score: {singleProduct?.rating.rate}
+          </div>
+          <button className="btnAddToCart" onClick={addToCart}>Add to cart</button>
+        </div>
       </div>
-      <div className="singlePrice">Price: {singleProduct?.price}€</div>
-      <div className="singleRating">
-        Rating score: {singleProduct?.rating.rate}
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
     </>
   );
 };

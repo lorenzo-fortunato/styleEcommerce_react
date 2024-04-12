@@ -1,3 +1,7 @@
+* {
+  margin: 10px;
+}
+
 .titleLogin {
   color: #ffbf00;
   text-align: center;
@@ -60,11 +64,11 @@ a:hover {
   color: #ffbf00;
 }
 
-.category {
+.categoryDiv {
   text-align: center;
   margin-top: 50px;
 }
-.category select {
+.categoryDiv select {
   width: 200px;
   padding: 3px 13px;
 }
@@ -113,8 +117,23 @@ a:hover {
   animation: addToCart 0.3s ease alternate;
 }
 
-* {
-  margin: 10px;
+.singleImg {
+  width: 200px;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px;
+}
+
+.priceProspect {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.singleDetail {
+  margin: 25px 65px;
 }
 
 .navbar,

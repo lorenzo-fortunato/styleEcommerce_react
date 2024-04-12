@@ -4,17 +4,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const navbar_1 = __importDefault(require("./components/navbar"));
 require("./style/css/style.css");
 const react_router_dom_1 = require("react-router-dom");
 const ProductDetail_1 = __importDefault(require("./components/ProductDetail"));
-const productList_1 = __importDefault(require("./components/productList"));
 const Home_1 = __importDefault(require("./components/Home"));
 const UserList_1 = __importDefault(require("./components/UserList"));
 const Cart_1 = __importDefault(require("./components/Cart"));
 const Login_1 = __importDefault(require("./components/Login"));
 const useToken_1 = __importDefault(require("./customHook/useToken"));
 const Footer_1 = __importDefault(require("./components/Footer"));
+const productList_1 = __importDefault(require("./components/productList"));
+const navbar_1 = __importDefault(require("./components/navbar"));
 function App() {
     const { token, setToken } = (0, useToken_1.default)();
     if (!token) {

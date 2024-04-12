@@ -1,15 +1,16 @@
 import React from 'react';
-import Navbar from './components/navbar';
 import "./style/css/style.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
-import ProductList from './components/productList';
 import Home from './components/Home';
 import UserList from './components/UserList';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import useToken from './customHook/useToken';
 import Footer from './components/Footer';
+import ProductList from './components/productList';
+import Navbar from './components/navbar';
+
 
 function App() {
   const { token, setToken }: { token: any, setToken: any} = useToken();

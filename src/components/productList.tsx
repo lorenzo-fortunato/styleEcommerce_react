@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Product } from "../interfaces/Product";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -43,16 +43,17 @@ const ProductList = () => {
     fetchData("https://fakestoreapi.com/products");
   };
 
+  const getProductsPerCategory = (value: string): void => {
+    fetchData(`https://fakestoreapi.com/products/category/${value}`);
+  };
+
   const handleSelection = (): void => {
     const selection = document.querySelector(".category") as HTMLSelectElement;
-    const optionAll = document.querySelector(
-      ".allCategory"
-    ) as HTMLOptionElement;
-    const value: string = selection?.value;
+    const value: string = selection.value;
     if (value == "all") {
       getAllProducts();
     } else {
-      fetchData(`https://fakestoreapi.com/products/category/${value}`);
+      getProductsPerCategory(value);
     }
   };
 
@@ -63,16 +64,16 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="category">
+      <div className="categoryDiv">
       <span>Choose your category: </span>
-        <select onChange={handleSelection}>
+        <select className="category" onChange={handleSelection}>
           <option className="allCategory" value="all">
             All
           </option>
           <option value="electronics">Electronics</option>
           <option value="jewelery">Jewelery</option>
           <option value="men's clothing">Men's clothing</option>
-          <option value="women's clothin">Women's clothing</option>
+          <option value="women's clothing">Women's clothing</option>
         </select>
       </div>
       <ul className="productList">

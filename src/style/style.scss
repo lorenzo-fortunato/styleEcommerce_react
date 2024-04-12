@@ -14,6 +14,10 @@
   padding-top: 15px;
 }
 
+* {
+  margin: 10px;
+}
+
 // login & logout
 .titleLogin {
   color: #ffbf00;
@@ -74,7 +78,7 @@ a {
 }
 
 // product list
-.category {
+.categoryDiv {
   text-align: center;
   margin-top: 50px;
 
@@ -120,8 +124,25 @@ a {
   }
 }
 
-* {
-  margin: 10px;
+// product detail
+.singleImg {
+  width: 200px;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px;
+
+}
+
+.priceProspect {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.singleDetail {
+  margin: 25px 65px;
 }
 
 // navbar

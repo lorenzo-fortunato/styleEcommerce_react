@@ -44,7 +44,6 @@ const Login = ({ setToken }: { setToken: any }) => {
       <form onSubmit={handleSubmit} className="formLogin">
         <h2 className="titleLogin">Style E-Commerce!</h2>
         <input
-          // className="inputLogin"
           className={isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin"}
           type="text"
           value={username}
