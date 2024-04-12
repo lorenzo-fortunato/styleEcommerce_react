@@ -76,7 +76,7 @@ const Login = ({ setToken }) => {
         react_1.default.createElement("input", { 
             // className="inputLogin"
             className: isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin", type: "text", value: username, placeholder: "Username", onChange: (e) => setUsername(e.target.value) }),
-        react_1.default.createElement("input", { className: isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin", type: "text", value: password, placeholder: "Password", onChange: (e) => setPassword(e.target.value) }),
+        react_1.default.createElement("input", { className: isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin", type: "password", value: password, placeholder: "Password", onChange: (e) => setPassword(e.target.value) }),
         isWrongCredentials && (react_1.default.createElement("div", null, "Wrong credentials, please retry with others...")),
         !isPending ? (react_1.default.createElement("button", { className: "btnLogin" }, "Login")) : (react_1.default.createElement("button", { disabled: true }, "Logging in..."))));
 };

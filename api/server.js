@@ -12,7 +12,6 @@ const credentials = {
 const jsonParser = bodyParser.json();     // necessario per il parse del body
 
 app.post('/login', jsonParser, (req, res) => {
-    console.log(req.body.username);
 
     const user = req.body.username;
     const password = req.body.password;

@@ -52,7 +52,7 @@ const Login = ({ setToken }: { setToken: any }) => {
           onChange={(e) => setUsername(e.target.value)} />
         <input
           className={isWrongCredentials ? "inputLogin wrongCredentials" : "inputLogin"}
-          type="text"
+          type="password"
           value={password}
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)} />
