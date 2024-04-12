@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-// PER IL MOMENTO NON VIENE UTILIZZATO
-
 const useFetch = (url: string) => {
     const [ data, setData ] = useState<any[]>([]);
     const [ isPending, setIsPending ] = useState<boolean>(true);
